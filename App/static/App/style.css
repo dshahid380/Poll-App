@@ -1,1 +1,13 @@
+body
+{ font-family:"Arial",sans-serif,Helvetica;
 
+ font-size:15px;
+ color:orange;
+ text-align:auto;
+
+}
+
+li a
+{ text-decoration:none;
+  color:red;
+}
