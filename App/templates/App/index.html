@@ -1,1 +1,14 @@
+{% extends 'App/base.html' %}
+{% block main_content %}
 
+{% if latest_Questions %}
+     <ul>
+      {% for Question in latest_Questions%}
+              <li><a href={% url "App:details" Question.id %}><h2>{{Question.Question_text}}</h2></a></li>
+       {% endfor %}
+     </ul>
+{% else %}
+       <p>You dont have any question please add some question</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,22 @@
+
+
+{% extends 'App/base.html' %}
+{% block main_content %}
+
+<h1> {{question.Question_text}}</h1>
+{% if error_message %} <p><strong>{{ error_message }}</strong></p> {% endif %}
+
+<form action="{% url 'App:vote' question.id %}" method="post">
+
+    {% csrf_token %}
+    {% for choice in question.choice_set.all %}
+        <input type="radio" id="choice{{forloop.counter}}" value="{{choice.id}}"/>
+        <label for="choice{{forloop.counter}}">{{choice.Choice_text}}</label><br/>
+    {% endfor %}
+    <input type="submit" value="vote"/>
+</form>
+
+
+{% endblock %}
+
+
